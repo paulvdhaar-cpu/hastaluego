@@ -94,7 +94,7 @@
     .venue{font-family:'Archivo Black';font-size:26px;line-height:1.02;margin-top:5px}
     .venue-sub{font:600 13px 'Schibsted Grotesk';color:var(--gray)}
 
-    .btn-cal{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px var(--gutter) 0;padding:15px;background:var(--ink);color:var(--cream);font:800 15px 'Space Grotesk';text-decoration:none}
+    .btn-cal{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px var(--gutter) 0;padding:15px;background:var(--ink);color:var(--cream);font:800 15px 'Space Grotesk';text-decoration:none;border:3px solid var(--yellow)}
     .btn-cal:active{transform:translateY(1px)}
     .cal-alt{display:block;text-align:center;margin:8px var(--gutter) 0;font:600 12px 'Space Grotesk';letter-spacing:.02em;color:var(--caption);text-decoration:none}
     .cal-alt:hover{color:var(--cream)}
@@ -103,7 +103,7 @@
     .gallery{padding:24px 0 0}
     .gallery-sub{padding:0 var(--gutter);margin:-6px 0 14px;font:400 14px/1.4 'Schibsted Grotesk';color:var(--caption)}
     .strip{display:flex;gap:10px;overflow-x:auto;padding:0 var(--gutter) 8px;-webkit-overflow-scrolling:touch}
-    .tile{flex:none;width:152px;aspect-ratio:3/4;border:3px solid var(--ink);object-fit:cover;
+    .tile{flex:none;width:190px;aspect-ratio:3/4;border:3px solid var(--ink);object-fit:cover;
       display:block;background:#0e2c1c}
     .tile.ph{background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)}
 
@@ -185,6 +185,11 @@
               <div class="venue">POR CONFIRMAR</div>
               <div class="venue-sub">Een Mexicaanse bar · Amsterdam</div>
             </div>
+            <div class="card-bottom" style="border-top:3px solid var(--ink)">
+              <div class="lbl">Dresscode</div>
+              <div class="venue">Un toque mexicano</div>
+              <div class="venue-sub">Ter inspi: sombrero, snor, bandana, luchador-masker of poncho</div>
+            </div>
           </div>
 
           <!-- Hosted .ics (Apple/Outlook/Android open it natively when served over https) -->
@@ -196,6 +201,7 @@
           <h2 class="sec-h">El Álbum</h2>
           <p class="gallery-sub">37 → 38 · el último año</p>
           <div class="strip">
+            <img class="tile" src="photos/p11.jpg" alt="" loading="lazy">
             <img class="tile" src="photos/p01.jpg" alt="" loading="lazy">
             <img class="tile" src="photos/p02.jpg" alt="" loading="lazy">
             <video class="tile" src="photos/v1.mp4" poster="photos/v1-poster.jpg" muted loop autoplay playsinline preload="metadata"></video>
