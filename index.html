@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasta Luego — Fiesta · 11 dec 2026</title>
+  <meta name="description" content="Nog één fiesta voor mijn sabbatical van drie maanden — en ik ben bijna jarig. Vrijdag 11 december 2026, 19:00, Amsterdam. Taco's, mezcal, música.">
+  <meta property="og:title" content="Hasta Luego — Despedida × Cumpleaños">
+  <meta property="og:description" content="Taco's, mezcal & música. Vrijdag 11 december 2026, 19:00 · Amsterdam. ¡Estás invitado!">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ffd23f'/%3E%3Ctext x='50' y='72' font-size='64' text-anchor='middle'%3E%F0%9F%8C%B6%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Space Grotesk 800 included (labels/buttons need it — the handoff import omitted it) -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700;800&family=Schibsted+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#141414;
+      --cream:#efe6cf;
+      --body:#eae0c6;
+      --flag:#14251a;
+      --flag2:#2f4a2e;
+      --red:#c8102e;
+      --yellow:#ffd23f;
+      --gray:#5a5a5a;
+      --placeholder:#8a8272;
+      --caption:#cdd39a;
+      --gutter:24px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:#05120c;
+      font-family:'Schibsted Grotesk',system-ui,sans-serif;
+      color:var(--cream);
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    /* centered mobile-first container that scales up gracefully */
+    .stage{max-width:480px;margin:0 auto;position:relative;min-height:100vh}
+    .bg{
+      position:relative;min-height:100%;
+      background:
+        radial-gradient(64% 46% at 100% -2%, rgba(232,214,178,.50) 0%, rgba(232,214,178,0) 62%),
+        radial-gradient(52% 34% at 78% 5%, rgba(230,138,70,.34) 0%, rgba(230,138,70,0) 62%),
+        radial-gradient(84% 42% at 45% 14%, rgba(202,22,44,.62) 0%, rgba(202,22,44,0) 70%),
+        radial-gradient(82% 22% at -8% 97%, rgba(52,162,99,.78) 0%, rgba(52,162,99,0) 60%),
+        linear-gradient(38deg,#1a5c37 0%,#164e2f 20%,#123f28 42%,#0f3522 62%,#0b2a1b 82%,#0a2417 100%);
+    }
+    .grain{position:absolute;inset:0;pointer-events:none;z-index:1}
+    .g1{mix-blend-mode:overlay;opacity:.4;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='150'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncG%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncB%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncA%20type='linear'%20slope='0'%20intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");background-size:150px 150px}
+    .g2{opacity:.16;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mb'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.0'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mb)'/%3E%3C/svg%3E");background-size:170px 170px}
+    .g3{opacity:.1;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mw'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.05'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.7'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mw)'/%3E%3C/svg%3E");background-size:170px 170px}
+    .content{position:relative;z-index:2;color:var(--cream)}
+
+    /* Shared section heading */
+    .sec-h{padding:0 var(--gutter);margin-bottom:14px;
+      font-family:'Archivo Black';font-size:22px;letter-spacing:-.02em;color:var(--cream);text-transform:uppercase}
+
+    /* HERO */
+    .hero{position:relative;height:560px;overflow:hidden}
+    .eyebrow{position:absolute;left:var(--gutter);top:66px;font:700 11px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+    .hero h1{position:absolute;left:20px;bottom:96px;margin:0;font-family:'Archivo Black';font-size:96px;line-height:.8;letter-spacing:-.04em;color:var(--flag);text-transform:uppercase}
+    .subline{position:absolute;left:var(--gutter);right:var(--gutter);bottom:48px;font:600 16px/1.35 'Schibsted Grotesk';color:var(--cream);text-shadow:0 2px 10px rgba(0,0,0,.55)}
+
+    /* MARQUEE */
+    .marquee{background:var(--yellow);color:var(--flag);padding:11px 0;overflow:hidden;white-space:nowrap}
+    .marquee.red{background:var(--red);color:var(--cream)}
+    .mqtrack{display:inline-flex;font-family:'Archivo Black';font-size:15px;letter-spacing:.04em;animation:mqroll 20s linear infinite;will-change:transform}
+    .mqtrack.rev{animation:mqroll 26s linear infinite reverse}
+
+    /* INTRO */
+    .intro{padding:24px var(--gutter) 0}
+    .intro p{margin:0;font:400 18px/1.5 'Schibsted Grotesk';color:var(--body);text-shadow:0 1px 6px rgba(0,0,0,.3)}
+
+    /* DATE CARD */
+    .datewrap{padding:24px 0 0}
+    .card{position:relative;margin:0 var(--gutter);background:var(--cream);color:var(--ink);border:3px solid var(--ink)}
+    .card-top{display:flex;border-bottom:3px solid var(--ink)}
+    .cell{flex:1;padding:16px 18px}
+    .cell.divide{border-right:3px solid var(--ink)}
+    .lbl{font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+    .lbl.green{color:var(--flag2)}
+    .big{font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px}
+    .cell-sub{font:400 12px 'Schibsted Grotesk';color:var(--gray);margin-top:4px}
+    .card-bottom{padding:16px 18px}
+    .venue{font-family:'Archivo Black';font-size:26px;line-height:1.02;margin-top:5px}
+    .venue-sub{font:600 13px 'Schibsted Grotesk';color:var(--gray)}
+
+    .btn-cal{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px var(--gutter) 0;padding:15px;background:var(--ink);color:var(--cream);font:800 15px 'Space Grotesk';text-decoration:none}
+    .btn-cal:active{transform:translateY(1px)}
+    .cal-alt{display:block;text-align:center;margin:8px var(--gutter) 0;font:600 12px 'Space Grotesk';letter-spacing:.02em;color:var(--caption);text-decoration:none}
+    .cal-alt:hover{color:var(--cream)}
+
+    /* GALLERY */
+    .gallery{padding:24px 0 0}
+    .gallery-sub{padding:0 var(--gutter);margin:-6px 0 14px;font:400 14px/1.4 'Schibsted Grotesk';color:var(--caption)}
+    .strip{display:flex;gap:10px;overflow-x:auto;padding:0 var(--gutter) 8px;-webkit-overflow-scrolling:touch}
+    .tile{flex:none;width:152px;aspect-ratio:3/4;border:3px solid var(--ink);object-fit:cover;
+      display:block;background:#0e2c1c}
+    .tile.ph{background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)}
+
+    /* PLAYLIST */
+    .plwrap{padding:24px 0 0}
+    .playlist{margin:0 var(--gutter);padding:22px;border:3px solid var(--flag);background:rgba(15,26,16,.35)}
+    .pl-title{font-family:'Archivo Black';font-size:28px;line-height:.95;margin:0 0 14px;color:var(--cream)}
+    .pl-embed{display:block;width:100%;height:352px;border:0;border-radius:0}
+
+    /* RSVP */
+    .rsvp{padding:24px var(--gutter)}
+    .rsvp-btn{display:block;padding:20px;text-align:center;background:var(--red);color:var(--cream);font-family:'Archivo Black';font-size:30px;text-decoration:none;border:3px solid var(--flag)}
+    .rsvp-cap{text-align:center;margin-top:10px;font:400 12px 'Space Grotesk';color:var(--caption)}
+
+    /* FOOTER color block */
+    .footer{background:var(--yellow);color:var(--flag);text-align:center;padding:34px var(--gutter) 40px;margin-top:24px}
+    .footer-big{font-family:'Archivo Black';font-size:22px;line-height:1;text-transform:uppercase}
+    .footer-sub{font:800 11px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:var(--flag2)}
+
+    /* Keyboard focus visibility on the near-black background */
+    a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+
+    @keyframes mqroll{to{transform:translateX(-50%)}}
+
+    /* Accessibility: respect reduced-motion for the marquees */
+    @media (prefers-reduced-motion:reduce){
+      .mqtrack{animation:none;transform:translateX(0)}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="bg">
+      <div class="grain g1"></div>
+      <div class="grain g2"></div>
+      <div class="grain g3"></div>
+
+      <div class="content">
+        <!-- HERO -->
+        <header class="hero">
+          <div class="eyebrow">Despedida × Cumpleaños</div>
+          <h1>Hasta<br>Luego</h1>
+          <p class="subline">Nog één fiesta voordat ik er drie maanden tussenuit ga én ik ben dan bijna jarig</p>
+        </header>
+
+        <!-- MARQUEE -->
+        <div class="marquee" aria-hidden="true">
+          <div class="mqtrack">
+            <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+            <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+          </div>
+        </div>
+
+        <!-- INTRO -->
+        <section class="intro">
+          <p>Achtendertig jaar dus tijd voor een <em>gracias</em> vanuit mij. Laten we taco's eten, mezcal drinken en er een klein feestje van maken.</p>
+        </section>
+
+        <!-- DATE & LOCATION -->
+        <section class="datewrap">
+          <h2 class="sec-h">Los Datos</h2>
+          <div class="card">
+            <div class="card-top">
+              <div class="cell divide">
+                <div class="lbl">Día</div>
+                <div class="big">11.12</div>
+                <div class="cell-sub">viernes</div>
+              </div>
+              <div class="cell">
+                <div class="lbl">Hora</div>
+                <div class="big">19:00</div>
+                <div class="cell-sub">tot laat</div>
+              </div>
+            </div>
+            <div class="card-bottom">
+              <div class="lbl green">Lugar</div>
+              <!-- TODO: replace with final venue name once confirmed -->
+              <div class="venue">POR CONFIRMAR</div>
+              <div class="venue-sub">Een Mexicaanse bar · Amsterdam</div>
+            </div>
+          </div>
+
+          <!-- Hosted .ics (Apple/Outlook/Android open it natively when served over https) -->
+          <a class="btn-cal" href="hasta-luego.ics" download="hasta-luego.ics" id="calBtn">＋ ZET IN JE AGENDA</a>
+          <!-- One-tap add for Gmail / Google Calendar users -->
+          <a class="cal-alt" target="_blank" rel="noopener"
+             href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hasta%20Luego%20%E2%80%94%20Fiesta%20%F0%9F%8C%AE&dates=20261211T180000Z%2F20261211T230000Z&details=Nog%20%C3%A9%C3%A9n%20fiesta%20voor%20de%20sabbatical%20%E2%80%94%20en%20ik%20ben%20(bijna)%20jarig.%20Taco%27s%2C%20mezcal%20%26%20m%C3%BAsica.&location=Amsterdam%20(locatie%20volgt)">o vía Google&nbsp;Calendar →</a>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery">
+          <h2 class="sec-h">El Álbum</h2>
+          <p class="gallery-sub">38 vueltas al sol ☀️</p>
+          <div class="strip">
+            <img class="tile" src="photos/p01.jpg" alt="" loading="lazy">
+            <img class="tile" src="photos/p02.jpg" alt="" loading="lazy">
+            <video class="tile" src="photos/v1.mp4" poster="photos/v1-poster.jpg" muted loop autoplay playsinline preload="metadata"></video>
+            <img class="tile" src="photos/p03.jpg" alt="" loading="lazy">
+            <img class="tile" src="photos/p04.jpg" alt="" loading="lazy">
+            <img class="tile" src="photos/p05.jpg" alt="" loading="lazy">
+            <video class="tile" src="photos/v2.mp4" poster="photos/v2-poster.jpg" muted loop autoplay playsinline preload="metadata"></video>
+            <img class="tile" src="photos/p06.jpg" alt="" loading="lazy">
+            <img class="tile" src="photos/p07.jpg" alt="" loading="lazy">
+            <img class="tile" src="photos/p08.jpg" alt="" loading="lazy">
+            <img class="tile" src="photos/p09.jpg" alt="" loading="lazy">
+            <video class="tile" src="photos/v3.mp4" poster="photos/v3-poster.jpg" muted loop autoplay playsinline preload="metadata"></video>
+            <img class="tile" src="photos/p10.jpg" alt="" loading="lazy">
+          </div>
+        </section>
+
+        <!-- PLAYLIST -->
+        <section class="plwrap">
+          <h2 class="sec-h">El Soundtrack</h2>
+          <div class="playlist">
+            <div class="pl-title">Latin<br>Bangers</div>
+            <iframe class="pl-embed" src="https://open.spotify.com/embed/playlist/5Gt222zM0gRYm3mQZKYQtM?utm_source=generator"
+                    title="Hasta Luego playlist op Spotify" loading="lazy" frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </section>
+
+        <!-- SECOND MARQUEE (counter-scroll, red) -->
+        <div class="marquee red" aria-hidden="true" style="margin-top:24px">
+          <div class="mqtrack rev">
+            <span>¡ESTÁS INVITADO!&nbsp;·&nbsp;HASTA LUEGO&nbsp;·&nbsp;11.12.2026&nbsp;·&nbsp;¡ESTÁS INVITADO!&nbsp;·&nbsp;HASTA LUEGO&nbsp;·&nbsp;11.12.2026&nbsp;·&nbsp;</span>
+            <span>¡ESTÁS INVITADO!&nbsp;·&nbsp;HASTA LUEGO&nbsp;·&nbsp;11.12.2026&nbsp;·&nbsp;¡ESTÁS INVITADO!&nbsp;·&nbsp;HASTA LUEGO&nbsp;·&nbsp;11.12.2026&nbsp;·&nbsp;</span>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+          <div class="footer-big">Nos vemos<br>en la pista</div>
+          <div class="footer-sub">Hasta Luego · Amsterdam · MMXXVI 🌮</div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

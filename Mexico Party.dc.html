@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Space+Grotesk:wght@400;500;700&family=Archivo+Black&family=Fraunces:ital,wght@0,400;0,600;1,400&family=Bricolage+Grotesque:wght@400;600;800&family=Instrument+Serif:ital@0;1&family=Familjen+Grotesk:ital,wght@0,400;0,600;1,400&family=Hanken+Grotesk:wght@400;600&family=Gambetta:ital,wght@0,400;1,400&family=Redaction:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Young+Serif&family=Schibsted+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#e9e3d6;font-family:'Space Grotesk',system-ui,sans-serif}
+  a{color:inherit}
+  .dv-turn{padding:44px 48px 40px;scroll-margin-top:16px}
+  .dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 26px}
+  .dv-tid{font:700 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+  .dv-tname{font:600 13px/1.2 'Space Grotesk',sans-serif;color:#1a1a1a}
+  .dv-opts{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start}
+  .dv-opt{flex:none;display:flex;flex-direction:column;gap:11px;scroll-margin-top:16px}
+  .dv-oid{font:700 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.09);color:#1a1a1a;border-radius:5px;text-decoration:none}
+  .dv-olabel{display:flex;align-items:baseline;gap:8px;font:500 11.5px/1.3 'Space Grotesk',sans-serif;color:rgba(0,0,0,.55)}
+  .dv-opt:target .dv-oid{background:#c8102e;color:#fff}
+  .phone{width:392px;border-radius:34px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.4),0 0 0 9px #101010,0 0 0 10px #2a2a2a;position:relative}
+  .scr{height:812px;overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+  .scr::-webkit-scrollbar{width:0}
+  .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:150px;height:26px;background:#101010;border-radius:0 0 18px 18px;z-index:40}
+  .dv-next{margin:26px 0 0;font:12px/1.6 'Space Grotesk',sans-serif;color:rgba(0,0,0,.5)}
+  @keyframes mqroll{to{transform:translateX(-50%)}}
+  @keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+</style>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-dale]'); if(!b) return; e.preventDefault();
+  var host=b.closest('.scr'); if(!host) return;
+  var r=b.getBoundingClientRect(), hr=host.getBoundingClientRect();
+  var cx=r.left-hr.left+r.width/2, cy=r.top-hr.top+r.height/2;
+  var cols=['#c8102e','#1a7a44','#ffd23f','#efe6cf','#e63329'];
+  for(var i=0;i<70;i++){
+    var s=document.createElement('span');
+    s.style.cssText='position:absolute;z-index:60;width:8px;height:13px;pointer-events:none;left:'+cx+'px;top:'+cy+'px;background:'+cols[i%cols.length]+';border-radius:1px;';
+    host.appendChild(s);
+    var ang=Math.random()*Math.PI*2, dist=60+Math.random()*180;
+    var dx=Math.cos(ang)*dist, dy=Math.sin(ang)*dist*0.5-70, rot=Math.random()*900-450;
+    s.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+dx+'px,'+(dy+300)+'px) rotate('+rot+'deg)',opacity:0}],{duration:1200+Math.random()*600,easing:'cubic-bezier(.15,.6,.3,1)'}).onfinish=function(){this.effect.target.remove();};
+  }
+});
+</script>
+</helmet>
+
+<section class="dv-turn" id="t3">
+  <div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Three more in the vibe of 3a / 3e / 3f — different faces</span></div>
+  <div class="dv-opts">
+    <div class="dv-opt" id="3a" style="width:392px">
+      <div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>Young Serif — characterful serif</div>
+      <div style="padding:30px 26px;border:3px solid #14251a;background:linear-gradient(180deg,#134a2e,#0a2619)"><p style="margin:0;font:400 22px/1.4 'Young Serif';color:#eae0c6">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p></div>
+    </div>
+    <div class="dv-opt" id="3b" style="width:392px">
+      <div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>Newsreader — warm editorial serif</div>
+      <div style="padding:30px 26px;border:3px solid #14251a;background:linear-gradient(180deg,#134a2e,#0a2619)"><p style="margin:0;font:400 23px/1.4 'Newsreader';color:#eae0c6">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p></div>
+    </div>
+    <div class="dv-opt" id="3c" style="width:392px">
+      <div class="dv-olabel"><a class="dv-oid" href="#3c">3c</a>Schibsted Grotesk — warm neutral sans</div>
+      <div style="padding:30px 26px;border:3px solid #14251a;background:linear-gradient(180deg,#134a2e,#0a2619)"><p style="margin:0;font:400 20px/1.5 'Schibsted Grotesk';color:#eae0c6">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p></div>
+    </div>
+    <div class="dv-opt" id="3d" style="width:392px">
+      <div class="dv-olabel"><a class="dv-oid" href="#3d">3d</a>Space Grotesk (original default)</div>
+      <div style="padding:30px 26px;border:3px solid #14251a;background:linear-gradient(180deg,#134a2e,#0a2619)"><p style="margin:0;font:500 20px/1.5 'Space Grotesk';color:#eae0c6">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p></div>
+    </div>
+  </div>
+  <p class="dv-next">Tell me which font to use, e.g. "put <a class="dv-oid" href="#3b">3b</a>'s font into 2a".</p>
+</section>
+
+<section class="dv-turn" id="t2">
+  <div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Built from <a class="dv-oid" href="#1b">1b</a> — darker green + tonal type, plus two ways to add a sombrero &amp; piñata (<a class="dv-oid" href="#2b">2b</a>, <a class="dv-oid" href="#2c">2c</a>)</span></div>
+  <div class="dv-opts">
+
+    <div class="dv-opt" id="2a">
+      <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Fiesta Neon v2 — green-forward, beige, grain cranked up</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="scr" style="position:relative">
+         <div style="position:relative;min-height:100%;background:radial-gradient(60% 34% at 55% 11%, rgba(206,17,38,.6) 0%, rgba(206,17,38,0) 60%), radial-gradient(42% 24% at 82% 8%, rgba(240,140,40,.5) 0%, rgba(240,140,40,0) 60%), radial-gradient(82% 42% at 25% 103%, rgba(16,72,44,.5) 0%, rgba(16,72,44,0) 60%), linear-gradient(180deg,#0c3322 0%,#134a2e 11%,#1a5836 21%,#175033 34%,#123f28 46%,#0d3121 58%,#0a2619 72%,#071a11 86%,#05120c 100%)">
+          <!-- page-wide grain, heavy -->
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:overlay;opacity:.4;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='150'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncG%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncB%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncA%20type='linear'%20slope='0'%20intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:150px 150px"></div>
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.16;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mb'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.0'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mb)'/%3E%3C/svg%3E&quot;);background-size:170px 170px"></div>
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.1;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mw'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.05'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.7'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mw)'/%3E%3C/svg%3E&quot;);background-size:170px 170px"></div>
+
+          <div style="position:relative;z-index:2;color:#efe6cf">
+
+          <!-- hero -->
+          <div style="position:relative;height:560px;overflow:hidden">
+            <div style="position:absolute;top:70px;right:26px;width:78px;height:78px;border-radius:50%;background:conic-gradient(from 0deg,#14251a 0 12deg,#efe6cf 12deg 24deg);opacity:.92"></div>
+            <div style="position:absolute;left:24px;top:66px;font:700 11px 'Space Grotesk';letter-spacing:.24em;text-transform:uppercase;color:#14251a">Despedida × Cumpleaños</div>
+            <h1 style="position:absolute;left:22px;bottom:96px;margin:0;font-family:'Archivo Black';font-size:96px;line-height:.8;letter-spacing:-.04em;color:#14251a;text-transform:uppercase">Hasta<br>Luego</h1>
+            <div style="position:absolute;left:24px;right:24px;bottom:52px;font:600 16px/1.35 'Schibsted Grotesk';color:#efe6cf;text-shadow:0 2px 10px rgba(0,0,0,.55)">One last fiesta before I go on a 3 month sabbatical — and it's (almost) my birthday</div>
+          </div>
+
+          <!-- rolling marquee, yellow -->
+          <div style="background:#ffd23f;color:#14251a;padding:11px 0;overflow:hidden;white-space:nowrap">
+            <div style="display:inline-flex;font-family:'Archivo Black';font-size:15px;letter-spacing:.04em;animation:mqroll 20s linear infinite;will-change:transform">
+              <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+              <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+            </div>
+          </div>
+
+          <!-- intro (38 years) -->
+          <div style="padding:28px 24px 6px">
+            <p style="margin:0;font:400 18px/1.5 'Schibsted Grotesk';color:#eae0c6;text-shadow:0 1px 6px rgba(0,0,0,.3)">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p>
+          </div>
+
+          <!-- date & location: brutalist bordered card (from 1c) in this palette -->
+          <div style="padding:20px 24px 8px">
+            <div style="background:#efe6cf;color:#141414;border:3px solid #141414">
+              <div style="display:flex;border-bottom:3px solid #141414">
+                <div style="flex:1;padding:16px 18px;border-right:3px solid #141414"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Día</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px">14.09</div></div>
+                <div style="flex:1;padding:16px 18px"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Hora</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px">20:00</div></div>
+              </div>
+              <div style="padding:16px 18px"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#2f4a2e">Lugar</div><div style="font-family:'Archivo Black';font-size:26px;line-height:1.02;margin-top:5px">LA CANTINA</div><div style="font:400 13px 'Space Grotesk';color:#5a5a5a">A Mexican bar · TBC · Berlin</div></div>
+            </div>
+            <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Hasta Luego%0ADTSTART:20270914T200000%0AEND:VEVENT%0AEND:VCALENDAR" download="fiesta.ics" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:15px;background:#141414;color:#efe6cf;font:800 15px 'Space Grotesk';text-decoration:none">＋ ADD TO CALENDAR</a>
+          </div>
+
+          <!-- photos: black-bordered strip, max 5 -->
+          <div style="padding:24px 0 8px">
+            <div style="padding:0 24px;font-family:'Archivo Black';font-size:24px;letter-spacing:-.02em;color:#efe6cf;margin-bottom:14px">EL ÁLBUM</div>
+            <div style="display:flex;gap:10px;overflow-x:auto;padding:0 24px 8px">
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">last year</div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)"></div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">photo</div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)"></div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">photo</div>
+            </div>
+          </div>
+
+          <!-- playlist -->
+          <div style="margin:22px 24px;padding:22px;border:3px solid #14251a;background:rgba(15,26,16,.35)">
+            <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#ffd23f">El Soundtrack</div>
+            <div style="font-family:'Archivo Black';font-size:28px;line-height:.95;margin:8px 0 14px;color:#efe6cf">Bangers<br>Only</div>
+            <a href="#2a" style="display:inline-flex;gap:8px;align-items:center;padding:11px 18px;background:#ffd23f;color:#14251a;font:800 14px 'Space Grotesk';text-decoration:none">▶ PLAY THE PLAYLIST</a>
+          </div>
+
+          <!-- rsvp -->
+          <div style="padding:20px 24px 46px">
+            <a href="#2a" style="display:block;padding:20px;text-align:center;background:#c8102e;color:#efe6cf;font-family:'Archivo Black';font-size:24px;text-decoration:none;border:3px solid #14251a">I'M IN</a>
+            <div style="text-align:center;margin-top:10px;font:400 12px 'Space Grotesk';color:#cdd39a">One tap → WhatsApp. No forms.</div>
+          </div>
+
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="2b">
+      <div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Idea 1 · line-art stamps — sombrero + piñata mark the sections</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="scr" style="position:relative">
+         <div style="position:relative;min-height:100%;background:radial-gradient(60% 34% at 55% 11%, rgba(206,17,38,.6) 0%, rgba(206,17,38,0) 60%), radial-gradient(42% 24% at 82% 8%, rgba(240,140,40,.5) 0%, rgba(240,140,40,0) 60%), radial-gradient(82% 42% at 25% 103%, rgba(16,72,44,.5) 0%, rgba(16,72,44,0) 60%), linear-gradient(180deg,#0c3322 0%,#134a2e 11%,#1a5836 21%,#175033 34%,#123f28 46%,#0d3121 58%,#0a2619 72%,#071a11 86%,#05120c 100%)">
+          <!-- page-wide grain, heavy -->
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:overlay;opacity:.4;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='150'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncG%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncB%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncA%20type='linear'%20slope='0'%20intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:150px 150px"></div>
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.16;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mb'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.0'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mb)'/%3E%3C/svg%3E&quot;);background-size:170px 170px"></div>
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.1;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mw'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.05'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.7'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mw)'/%3E%3C/svg%3E&quot;);background-size:170px 170px"></div>
+
+          <div style="position:relative;z-index:2;color:#efe6cf">
+
+          <!-- hero -->
+          <div style="position:relative;height:560px;overflow:hidden">
+            <div style="position:absolute;top:70px;right:26px;width:78px;height:78px;border-radius:50%;background:conic-gradient(from 0deg,#14251a 0 12deg,#efe6cf 12deg 24deg);opacity:.92"></div>
+            <div style="position:absolute;left:24px;top:66px;font:700 11px 'Space Grotesk';letter-spacing:.24em;text-transform:uppercase;color:#14251a">Despedida × Cumpleaños</div>
+            <h1 style="position:absolute;left:22px;bottom:96px;margin:0;font-family:'Archivo Black';font-size:96px;line-height:.8;letter-spacing:-.04em;color:#14251a;text-transform:uppercase">Hasta<br>Luego</h1>
+            <div style="position:absolute;left:24px;right:24px;bottom:52px;font:600 16px/1.35 'Schibsted Grotesk';color:#efe6cf;text-shadow:0 2px 10px rgba(0,0,0,.55)">One last fiesta before I go on a 3 month sabbatical — and it's (almost) my birthday</div>
+          </div>
+
+          <!-- rolling marquee, yellow -->
+          <div style="background:#ffd23f;color:#14251a;padding:11px 0;overflow:hidden;white-space:nowrap">
+            <div style="display:inline-flex;font-family:'Archivo Black';font-size:15px;letter-spacing:.04em;animation:mqroll 20s linear infinite;will-change:transform">
+              <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+              <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+            </div>
+          </div>
+
+          <!-- intro (38 years) -->
+          <div style="padding:28px 24px 6px">
+            <p style="margin:0;font:400 18px/1.5 'Schibsted Grotesk';color:#eae0c6;text-shadow:0 1px 6px rgba(0,0,0,.3)">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p>
+          </div>
+
+          <!-- date & location: brutalist bordered card (from 1c) in this palette -->
+          <div style="padding:20px 24px 8px">
+            <div style="margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px 6px 9px;border:1.5px dashed rgba(255,210,63,.55);border-radius:999px;color:#ffd23f;font:800 9px 'Space Grotesk';letter-spacing:.18em;text-transform:uppercase"><svg width="30" height="20" viewBox="0 0 34 24" fill="none" stroke="#ffd23f" stroke-width="1.6" stroke-linejoin="round"><ellipse cx="17" cy="18" rx="15.5" ry="4.5"/><path d="M9 18 Q10 7 17 7 Q24 7 25 18"/><ellipse cx="17" cy="7" rx="3" ry="1.8"/></svg>Sombrero</span></div>
+            <div style="background:#efe6cf;color:#141414;border:3px solid #141414">
+              <div style="display:flex;border-bottom:3px solid #141414">
+                <div style="flex:1;padding:16px 18px;border-right:3px solid #141414"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Día</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px">14.09</div></div>
+                <div style="flex:1;padding:16px 18px"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Hora</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px">20:00</div></div>
+              </div>
+              <div style="padding:16px 18px"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#2f4a2e">Lugar</div><div style="font-family:'Archivo Black';font-size:26px;line-height:1.02;margin-top:5px">LA CANTINA</div><div style="font:400 13px 'Space Grotesk';color:#5a5a5a">A Mexican bar · TBC · Berlin</div></div>
+            </div>
+            <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Hasta Luego%0ADTSTART:20270914T200000%0AEND:VEVENT%0AEND:VCALENDAR" download="fiesta.ics" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:15px;background:#141414;color:#efe6cf;font:800 15px 'Space Grotesk';text-decoration:none">＋ ADD TO CALENDAR</a>
+          </div>
+
+          <!-- photos: black-bordered strip, max 5 -->
+          <div style="padding:24px 0 8px">
+            <div style="padding:0 24px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Archivo Black';font-size:24px;letter-spacing:-.02em;color:#efe6cf">EL ÁLBUM</span><span style="display:inline-flex;align-items:center;gap:8px;padding:6px 13px 6px 9px;border:1.5px dashed rgba(255,210,63,.55);border-radius:999px;color:#ffd23f;font:800 9px 'Space Grotesk';letter-spacing:.18em;text-transform:uppercase"><svg width="21" height="21" viewBox="0 0 28 28" fill="none" stroke="#ffd23f" stroke-width="1.4" stroke-linejoin="round"><path d="M14 1 L16 9 L24 6 L18 13 L27 15 L18 17 L23 25 L15 20 L14 27 L13 20 L5 25 L10 17 L1 15 L10 13 L4 6 L12 9 Z"/></svg>Piñata</span></div>
+            <div style="display:flex;gap:10px;overflow-x:auto;padding:0 24px 8px">
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">last year</div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)"></div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">photo</div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)"></div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">photo</div>
+            </div>
+          </div>
+
+          <!-- playlist -->
+          <div style="margin:22px 24px;padding:22px;border:3px solid #14251a;background:rgba(15,26,16,.35)">
+            <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#ffd23f">El Soundtrack</div>
+            <div style="font-family:'Archivo Black';font-size:28px;line-height:.95;margin:8px 0 14px;color:#efe6cf">Bangers<br>Only</div>
+            <a href="#2b" style="display:inline-flex;gap:8px;align-items:center;padding:11px 18px;background:#ffd23f;color:#14251a;font:800 14px 'Space Grotesk';text-decoration:none">▶ PLAY THE PLAYLIST</a>
+          </div>
+
+          <!-- rsvp -->
+          <div style="padding:20px 24px 46px">
+            <a href="#2b" style="display:block;padding:20px;text-align:center;background:#c8102e;color:#efe6cf;font-family:'Archivo Black';font-size:24px;text-decoration:none;border:3px solid #14251a">I'M IN</a>
+            <div style="text-align:center;margin-top:10px;font:400 12px 'Space Grotesk';color:#cdd39a">One tap → WhatsApp. No forms.</div>
+          </div>
+
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dv-opt" id="2c">
+      <div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>Idea 2 · the piñata pull — a swaying piñata + a ¡Dale! candy-burst RSVP</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="scr" style="position:relative">
+         <div style="position:relative;min-height:100%;background:radial-gradient(60% 34% at 55% 11%, rgba(206,17,38,.6) 0%, rgba(206,17,38,0) 60%), radial-gradient(42% 24% at 82% 8%, rgba(240,140,40,.5) 0%, rgba(240,140,40,0) 60%), radial-gradient(82% 42% at 25% 103%, rgba(16,72,44,.5) 0%, rgba(16,72,44,0) 60%), linear-gradient(180deg,#0c3322 0%,#134a2e 11%,#1a5836 21%,#175033 34%,#123f28 46%,#0d3121 58%,#0a2619 72%,#071a11 86%,#05120c 100%)">
+          <!-- page-wide grain, heavy -->
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;mix-blend-mode:overlay;opacity:.4;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='150'%20height='150'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.9'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='saturate'%20values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncG%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncB%20type='linear'%20slope='1.3'%20intercept='-0.15'/%3E%3CfeFuncA%20type='linear'%20slope='0'%20intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:150px 150px"></div>
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.16;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mb'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.0'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mb)'/%3E%3C/svg%3E&quot;);background-size:170px 170px"></div>
+          <div style="position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.1;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='170'%20height='170'%3E%3Cfilter%20id='mw'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='1.05'%20numOctaves='2'%20stitchTiles='stitch'/%3E%3CfeColorMatrix%20type='matrix'%20values='0%200%200%200%201%200%200%200%200%201%200%200%200%200%201%200.33%200.33%200.33%200%200'/%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type='linear'%20slope='5'%20intercept='-2.7'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23mw)'/%3E%3C/svg%3E&quot;);background-size:170px 170px"></div>
+
+          <div style="position:relative;z-index:2;color:#efe6cf">
+
+          <!-- hero with hanging piñata -->
+          <div style="position:relative;height:600px;overflow:hidden">
+            <div style="position:absolute;top:0;right:63px;width:2px;height:118px;background:repeating-linear-gradient(#efe6cf 0 5px,transparent 5px 11px)"></div>
+            <div style="position:absolute;top:96px;right:22px;transform-origin:50% -96px;animation:sway 3.6s ease-in-out infinite">
+              <svg width="94" height="94" viewBox="0 0 100 104" fill="none" stroke-linejoin="round">
+                <path d="M50 96 l-5 15 M50 96 l0 16 M50 96 l5 15" stroke="#ffd23f" stroke-width="3"/>
+                <path d="M50 4 L57 30 L84 22 L64 44 L95 50 L64 56 L80 86 L54 68 L50 96 L46 68 L20 86 L36 56 L5 50 L36 44 L16 22 L43 30 Z" fill="#c8102e" stroke="#14251a" stroke-width="2.4"/>
+                <path d="M43 30 L64 44 L36 56 Z" fill="#1a7a44"/>
+                <path d="M64 44 L64 56 L84 50 Z" fill="#ffd23f"/>
+              </svg>
+            </div>
+            <div style="position:absolute;left:24px;top:66px;font:700 11px 'Space Grotesk';letter-spacing:.24em;text-transform:uppercase;color:#14251a">Despedida × Cumpleaños</div>
+            <h1 style="position:absolute;left:22px;bottom:110px;margin:0;font-family:'Archivo Black';font-size:96px;line-height:.8;letter-spacing:-.04em;color:#14251a;text-transform:uppercase">Hasta<br>Luego</h1>
+            <div style="position:absolute;left:24px;bottom:66px;font:700 16px 'Space Grotesk';color:#efe6cf;text-shadow:0 2px 10px rgba(0,0,0,.55)">One last fiesta before I go — and it's my birthday</div>
+            <div style="position:absolute;left:24px;bottom:34px;font:800 11px 'Space Grotesk';letter-spacing:.14em;text-transform:uppercase;color:#ffd23f">Dale a la piñata to RSVP ↓</div>
+          </div>
+
+          <!-- rolling marquee, yellow -->
+          <div style="background:#ffd23f;color:#14251a;padding:11px 0;overflow:hidden;white-space:nowrap">
+            <div style="display:inline-flex;font-family:'Archivo Black';font-size:15px;letter-spacing:.04em;animation:mqroll 20s linear infinite;will-change:transform">
+              <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+              <span>TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;TACOS&nbsp;·&nbsp;MEZCAL&nbsp;·&nbsp;MÚSICA&nbsp;·&nbsp;</span>
+            </div>
+          </div>
+
+          <!-- intro (38 years) -->
+          <div style="padding:28px 24px 6px">
+            <p style="margin:0;font:500 17px/1.5 'Space Grotesk';color:#eae0c6;text-shadow:0 1px 6px rgba(0,0,0,.3)">Thirty-eight years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud.</p>
+          </div>
+
+          <!-- date & location: brutalist bordered card (from 1c) in this palette -->
+          <div style="padding:20px 24px 8px">
+            <div style="background:#efe6cf;color:#141414;border:3px solid #141414">
+              <div style="display:flex;border-bottom:3px solid #141414">
+                <div style="flex:1;padding:16px 18px;border-right:3px solid #141414"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Día</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px">14.09</div></div>
+                <div style="flex:1;padding:16px 18px"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Hora</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1;margin-top:4px">20:00</div></div>
+              </div>
+              <div style="padding:16px 18px"><div style="font:800 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#2f4a2e">Lugar</div><div style="font-family:'Archivo Black';font-size:26px;line-height:1.02;margin-top:5px">LA CANTINA</div><div style="font:400 13px 'Space Grotesk';color:#5a5a5a">A Mexican bar · TBC · Berlin</div></div>
+            </div>
+            <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Hasta Luego%0ADTSTART:20270914T200000%0AEND:VEVENT%0AEND:VCALENDAR" download="fiesta.ics" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:15px;background:#141414;color:#efe6cf;font:800 15px 'Space Grotesk';text-decoration:none">＋ ADD TO CALENDAR</a>
+          </div>
+
+          <!-- photos: black-bordered strip, max 5 -->
+          <div style="padding:24px 0 8px">
+            <div style="padding:0 24px;font-family:'Archivo Black';font-size:24px;letter-spacing:-.02em;color:#efe6cf;margin-bottom:14px">EL ÁLBUM</div>
+            <div style="display:flex;gap:10px;overflow-x:auto;padding:0 24px 8px">
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">last year</div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)"></div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">photo</div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px)"></div>
+              <div style="flex:none;width:152px;aspect-ratio:3/4;border:3px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 10px,#ece5d1 10px 20px);display:flex;align-items:flex-end;padding:10px;font:600 9px monospace;color:#8a8272">photo</div>
+            </div>
+          </div>
+
+          <!-- playlist -->
+          <div style="margin:22px 24px;padding:22px;border:3px solid #14251a;background:rgba(15,26,16,.35)">
+            <div style="display:flex;align-items:center;gap:9px;font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#ffd23f"><svg width="26" height="17" viewBox="0 0 34 24" fill="none" stroke="#ffd23f" stroke-width="1.7" stroke-linejoin="round"><ellipse cx="17" cy="18" rx="15.5" ry="4.5"/><path d="M9 18 Q10 7 17 7 Q24 7 25 18"/><ellipse cx="17" cy="7" rx="3" ry="1.8"/></svg>El Soundtrack</div>
+            <div style="font-family:'Archivo Black';font-size:28px;line-height:.95;margin:8px 0 14px;color:#efe6cf">Bangers<br>Only</div>
+            <a href="#2c" style="display:inline-flex;gap:8px;align-items:center;padding:11px 18px;background:#ffd23f;color:#14251a;font:800 14px 'Space Grotesk';text-decoration:none">▶ PLAY THE PLAYLIST</a>
+          </div>
+
+          <!-- rsvp -->
+          <div style="padding:20px 24px 46px">
+            <a href="#2c" data-dale="1" style="display:block;padding:22px;text-align:center;background:#c8102e;color:#efe6cf;font-family:'Archivo Black';font-size:27px;text-decoration:none;border:3px solid #14251a">¡DALE!</a>
+            <div style="text-align:center;margin-top:10px;font:400 12px 'Space Grotesk';color:#cdd39a">Tap for a candy-burst, then it opens WhatsApp — no forms.</div>
+          </div>
+
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "ship <a class="dv-oid" href="#2a">2a</a> as the site" · "put <a class="dv-oid" href="#2b">2b</a>'s stamps onto <a class="dv-oid" href="#2a">2a</a>" · "make <a class="dv-oid" href="#2c">2c</a>'s confetti bigger" · "new directions"</p>
+</section>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Three directions — mobile-first · grainy Mexican gradients · goodbye + birthday</span></div>
+  <div class="dv-opts">
+
+    <!-- ============ 1a — MERCADO ============ -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Mercado — warm cream, editorial, playful</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="scr" style="background:#efe9dc;color:#1c1a16">
+
+          <!-- hero -->
+          <div style="position:relative;padding:64px 26px 40px;overflow:hidden;background:radial-gradient(120% 90% at 15% 0%, #e63329 0%, #c8102e 34%, #8a1c2b 62%, #2f4a2e 100%)">
+            <div style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.55;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E&quot;)"></div>
+            <div style="position:relative">
+              <div style="display:flex;justify-content:space-between;align-items:center;font:700 11px/1 'Space Grotesk';letter-spacing:.22em;color:#f4e7c9;text-transform:uppercase">
+                <span>Goodbye &amp; Cumpleaños</span>
+                <span>·25·</span>
+              </div>
+              <h1 style="margin:26px 0 0;font-family:'Archivo Black',sans-serif;font-size:74px;line-height:.86;letter-spacing:-.03em;color:#f4e7c9;text-transform:uppercase">Adiós<br>Amigos</h1>
+              <div style="display:inline-block;margin-top:14px;padding:7px 14px;background:#f4e7c9;color:#c8102e;border-radius:999px;font:700 13px 'Space Grotesk';transform:rotate(-3deg)">¡y feliz cumple, Alex! 🎉</div>
+            </div>
+          </div>
+
+          <!-- sunburst divider -->
+          <div style="display:flex;justify-content:center;margin:-22px 0 0;position:relative;z-index:5">
+            <div style="width:56px;height:56px;border-radius:50%;background:conic-gradient(from 0deg,#2f4a2e 0 15deg,#f4e7c9 15deg 30deg);box-shadow:0 6px 16px rgba(0,0,0,.25)"></div>
+          </div>
+
+          <!-- intro -->
+          <div style="padding:26px 26px 6px">
+            <p style="margin:0;font:500 17px/1.5 'Space Grotesk';color:#39332a">Ten years, one big <em>gracias</em>. I'm heading off — so let's eat tacos, drink mezcal, and send it off loud. Oh, and it's my birthday. 🌮</p>
+          </div>
+
+          <!-- date & location -->
+          <div style="margin:18px 20px;padding:22px;background:#fff;border:2px solid #1c1a16;border-radius:20px">
+            <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Cuándo &amp; Dónde</div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:12px;border-bottom:1px solid #d8d0bf;padding-bottom:12px">
+              <div><div style="font-family:'Archivo Black';font-size:38px;line-height:.9">SÁB</div><div style="font:500 13px 'Space Grotesk';color:#6b6355">Saturday</div></div>
+              <div style="text-align:right"><div style="font-family:'Archivo Black';font-size:38px;line-height:.9">14</div><div style="font:500 13px 'Space Grotesk';color:#6b6355">Sept · 20:00</div></div>
+            </div>
+            <div style="margin-top:12px;font:600 16px 'Space Grotesk'">La Cantina 🌵</div>
+            <div style="font:400 14px 'Space Grotesk';color:#6b6355">A Mexican bar (TBC) · Berlin</div>
+            <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Adios Amigos - Goodbye %26 Birthday%0ADTSTART:20270914T200000%0ADTEND:20270915T020000%0ALOCATION:La Cantina%2C Berlin%0AEND:VEVENT%0AEND:VCALENDAR" download="adios-amigos.ics" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:14px;background:#1c1a16;color:#f4e7c9;border-radius:14px;font:700 15px 'Space Grotesk';text-decoration:none">＋ Add to calendar</a>
+          </div>
+
+          <!-- photos -->
+          <div style="padding:8px 20px 4px">
+            <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#2f4a2e;margin-bottom:12px">Un año juntos · the last year</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div style="aspect-ratio:3/4;border-radius:14px;background:repeating-linear-gradient(45deg,#ded5c2 0 10px,#e7dfcd 10px 20px);display:flex;align-items:center;justify-content:center;font:600 10px ui-monospace,monospace;color:#8a8072;text-align:center;grid-row:span 2">📷<br>photo</div>
+              <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(45deg,#ded5c2 0 10px,#e7dfcd 10px 20px);display:flex;align-items:center;justify-content:center;font:600 10px ui-monospace,monospace;color:#8a8072">photo</div>
+              <div style="aspect-ratio:4/3;border-radius:14px;background:repeating-linear-gradient(45deg,#ded5c2 0 10px,#e7dfcd 10px 20px);display:flex;align-items:center;justify-content:center;font:600 10px ui-monospace,monospace;color:#8a8072">photo</div>
+            </div>
+          </div>
+
+          <!-- playlist -->
+          <div style="margin:20px;padding:22px;border-radius:20px;position:relative;overflow:hidden;background:linear-gradient(135deg,#2f4a2e 0%,#3f6a3a 100%)">
+            <div style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.5;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E&quot;)"></div>
+            <div style="position:relative;color:#f4e7c9">
+              <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;opacity:.8">La Playlist</div>
+              <div style="font-family:'Archivo Black';font-size:26px;line-height:1;margin:8px 0 14px">Cumbias &amp;<br>Reggaetón</div>
+              <a href="#1a" style="display:inline-flex;align-items:center;gap:8px;padding:11px 18px;background:#1DB954;color:#062a12;border-radius:999px;font:700 14px 'Space Grotesk';text-decoration:none">▶ Open on Spotify</a>
+            </div>
+          </div>
+
+          <!-- rsvp footer -->
+          <div style="padding:24px 20px 40px;text-align:center">
+            <div style="font:500 15px 'Space Grotesk';color:#6b6355">Coming? Tap below 👇</div>
+            <a href="#1a" style="display:block;margin-top:12px;padding:16px;background:#c8102e;color:#f4e7c9;border-radius:16px;font-family:'Archivo Black';font-size:20px;text-decoration:none">SÍ, ¡AHÍ ESTARÉ! ✋</a>
+            <div style="margin-top:10px;font:400 12px 'Space Grotesk';color:#9a9081">RSVP via WhatsApp · no forms, prometido</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1b — FIESTA NEON ============ -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Fiesta Neon — dark, immersive, festival gradient</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="scr" style="background:#0e1a10;color:#f2ecd9">
+
+          <!-- full-bleed hero -->
+          <div style="position:relative;height:560px;overflow:hidden;background:radial-gradient(90% 70% at 70% 20%, #ffd23f 0%, #e63329 30%, #c8102e 48%, #2f4a2e 78%, #0e1a10 100%)">
+            <div style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.6;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E&quot;)"></div>
+            <div style="position:absolute;top:70px;right:26px;width:78px;height:78px;border-radius:50%;background:conic-gradient(from 0deg,#0e1a10 0 12deg,#ffd23f 12deg 24deg)"></div>
+            <div style="position:absolute;left:24px;top:66px;font:700 11px 'Space Grotesk';letter-spacing:.24em;text-transform:uppercase;color:#0e1a10">Despedida × Cumpleaños</div>
+            <h1 style="position:absolute;left:22px;bottom:96px;margin:0;font-family:'Archivo Black';font-size:96px;line-height:.8;letter-spacing:-.04em;color:#0e1a10;text-transform:uppercase">Hasta<br>Luego</h1>
+            <div style="position:absolute;left:24px;bottom:52px;font:700 16px 'Space Grotesk';color:#f2ecd9;text-shadow:0 2px 8px rgba(0,0,0,.4)">One last fiesta before I go — &amp; it's my birthday 🎂</div>
+          </div>
+
+          <!-- marquee strip -->
+          <div style="background:#ffd23f;color:#0e1a10;padding:10px 0;overflow:hidden;white-space:nowrap;font-family:'Archivo Black';font-size:15px;letter-spacing:.04em">🌮 TACOS · MEZCAL · MÚSICA · 🌮 TACOS · MEZCAL · MÚSICA · 🌮 TACOS · MEZCAL · MÚSICA ·</div>
+
+          <!-- date -->
+          <div style="padding:30px 24px 8px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2c3a2c;border-radius:18px;overflow:hidden">
+              <div style="background:#122015;padding:20px 18px"><div style="font:700 9px 'Space Grotesk';letter-spacing:.2em;color:#ffd23f;text-transform:uppercase">Fecha</div><div style="font-family:'Archivo Black';font-size:30px;line-height:1;margin-top:8px">SEP 14</div><div style="font:400 12px 'Space Grotesk';color:#9db09d">Sat · 20:00 late</div></div>
+              <div style="background:#122015;padding:20px 18px"><div style="font:700 9px 'Space Grotesk';letter-spacing:.2em;color:#ffd23f;text-transform:uppercase">Lugar</div><div style="font-family:'Archivo Black';font-size:30px;line-height:1;margin-top:8px">CANTINA</div><div style="font:400 12px 'Space Grotesk';color:#9db09d">Mexican bar · TBC</div></div>
+            </div>
+            <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Hasta Luego%0ADTSTART:20270914T200000%0AEND:VEVENT%0AEND:VCALENDAR" download="fiesta.ics" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:14px;background:#ffd23f;color:#0e1a10;border-radius:14px;font:700 15px 'Space Grotesk';text-decoration:none">＋ Save the date</a>
+          </div>
+
+          <!-- photos full-bleed grid -->
+          <div style="padding:22px 24px 8px">
+            <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#ffd23f;margin-bottom:12px">Momentos · this year</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+              <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(45deg,#1a2a1c 0 9px,#223022 9px 18px);display:flex;align-items:center;justify-content:center;font:600 16px monospace;color:#4c5f4c">📷</div>
+              <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(45deg,#1a2a1c 0 9px,#223022 9px 18px)"></div>
+              <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(45deg,#1a2a1c 0 9px,#223022 9px 18px)"></div>
+              <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(45deg,#1a2a1c 0 9px,#223022 9px 18px)"></div>
+              <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(45deg,#1a2a1c 0 9px,#223022 9px 18px);display:flex;align-items:center;justify-content:center;font:600 9px monospace;color:#4c5f4c">photo</div>
+              <div style="aspect-ratio:1;border-radius:10px;background:repeating-linear-gradient(45deg,#1a2a1c 0 9px,#223022 9px 18px)"></div>
+            </div>
+          </div>
+
+          <!-- playlist -->
+          <div style="margin:22px 24px;padding:22px;border-radius:18px;background:radial-gradient(120% 100% at 0% 0%,#e63329,#8a1c2b);position:relative;overflow:hidden">
+            <div style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.5;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E&quot;)"></div>
+            <div style="position:relative"><div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;opacity:.85">El Soundtrack</div><div style="font-family:'Archivo Black';font-size:28px;line-height:.95;margin:8px 0 14px">Bangers<br>Only 🔊</div><a href="#1b" style="display:inline-flex;gap:8px;align-items:center;padding:11px 18px;background:#0e1a10;color:#ffd23f;border-radius:999px;font:700 14px 'Space Grotesk';text-decoration:none">▶ Play the playlist</a></div>
+          </div>
+
+          <!-- rsvp -->
+          <div style="padding:20px 24px 44px">
+            <a href="#1b" style="display:block;padding:20px;text-align:center;background:#ffd23f;color:#0e1a10;border-radius:18px;font-family:'Archivo Black';font-size:24px;text-decoration:none">I'M IN 🙌</a>
+            <div style="text-align:center;margin-top:10px;font:400 12px 'Space Grotesk';color:#7e907e">One tap → WhatsApp. Easy.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1c — SALSA SPLIT ============ -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Salsa Split — bold color blocks, brutalist grid</div>
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="scr" style="background:#f2ecd9;color:#141414">
+
+          <!-- hero: split red/green -->
+          <div style="position:relative">
+            <div style="padding:66px 22px 22px;background:#c8102e;position:relative;overflow:hidden">
+              <div style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.5;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E&quot;)"></div>
+              <div style="position:relative;font:700 11px 'Space Grotesk';letter-spacing:.24em;text-transform:uppercase;color:#f2ecd9">Me voy · cumpleaños · fiesta</div>
+              <h1 style="position:relative;margin:14px 0 0;font-family:'Archivo Black';font-size:80px;line-height:.82;letter-spacing:-.04em;color:#f2ecd9;text-transform:uppercase">Nos<br>Vemos</h1>
+            </div>
+            <div style="padding:22px;background:#2f4a2e;position:relative;overflow:hidden">
+              <div style="position:absolute;inset:0;mix-blend-mode:overlay;opacity:.5;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E&quot;)"></div>
+              <p style="position:relative;margin:0;font:500 16px/1.45 'Space Grotesk';color:#f2ecd9">I'm leaving town &amp; turning a year older — so come eat too many tacos with me one last time.</p>
+            </div>
+            <!-- diagonal sunburst overlap -->
+            <div style="position:absolute;left:50%;top:calc(100% - 148px);transform:translateX(-50%);width:64px;height:64px;border-radius:50%;background:conic-gradient(from 0deg,#c8102e 0 18deg,#ffd23f 18deg 36deg);box-shadow:0 0 0 6px #f2ecd9;z-index:3"></div>
+          </div>
+
+          <!-- date block -->
+          <div style="padding:44px 22px 8px">
+            <div style="border:3px solid #141414;border-radius:0;overflow:hidden">
+              <div style="display:flex;border-bottom:3px solid #141414">
+                <div style="flex:1;padding:16px 18px;border-right:3px solid #141414"><div style="font:700 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Día</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1">14.09</div></div>
+                <div style="flex:1;padding:16px 18px"><div style="font:700 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#c8102e">Hora</div><div style="font-family:'Archivo Black';font-size:34px;line-height:1">20:00</div></div>
+              </div>
+              <div style="padding:16px 18px"><div style="font:700 9px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase;color:#2f4a2e">Lugar</div><div style="font-family:'Archivo Black';font-size:24px;line-height:1.05;margin-top:4px">LA CANTINA</div><div style="font:400 13px 'Space Grotesk';color:#5a5a5a">A Mexican bar · TBC · Berlin</div></div>
+            </div>
+            <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Nos Vemos%0ADTSTART:20270914T200000%0AEND:VEVENT%0AEND:VCALENDAR" download="nosvemos.ics" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:15px;background:#141414;color:#f2ecd9;border-radius:0;font:700 15px 'Space Grotesk';text-decoration:none">＋ ADD TO CALENDAR</a>
+          </div>
+
+          <!-- photos -->
+          <div style="padding:22px 22px 8px">
+            <div style="font-family:'Archivo Black';font-size:22px;letter-spacing:-.02em;margin-bottom:12px">EL ÁLBUM</div>
+            <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:6px">
+              <div style="flex:none;width:130px;aspect-ratio:3/4;border:2px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 9px,#ece5d1 9px 18px);display:flex;align-items:flex-end;padding:8px;font:600 9px monospace;color:#8a8272">last year 📷</div>
+              <div style="flex:none;width:130px;aspect-ratio:3/4;border:2px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 9px,#ece5d1 9px 18px)"></div>
+              <div style="flex:none;width:130px;aspect-ratio:3/4;border:2px solid #141414;background:repeating-linear-gradient(45deg,#e3dcc8 0 9px,#ece5d1 9px 18px);display:flex;align-items:flex-end;padding:8px;font:600 9px monospace;color:#8a8272">photo</div>
+            </div>
+          </div>
+
+          <!-- playlist -->
+          <div style="margin:18px 22px;padding:20px;background:#ffd23f;border:3px solid #141414">
+            <div style="font:700 10px 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase">La Música</div>
+            <div style="font-family:'Archivo Black';font-size:30px;line-height:.95;margin:6px 0 12px">TURN IT<br>UP 🔊</div>
+            <a href="#1c" style="display:inline-flex;gap:8px;align-items:center;padding:12px 18px;background:#141414;color:#ffd23f;border-radius:0;font:700 14px 'Space Grotesk';text-decoration:none">▶ SPOTIFY →</a>
+          </div>
+
+          <!-- rsvp -->
+          <div style="padding:14px 22px 44px">
+            <a href="#1c" style="display:block;padding:20px;text-align:center;background:#c8102e;color:#f2ecd9;border:3px solid #141414;font-family:'Archivo Black';font-size:26px;text-decoration:none">SÍ ✋</a>
+            <div style="text-align:center;margin-top:10px;font:400 12px 'Space Grotesk';color:#7a7a7a">Tap → WhatsApp. Zero forms.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">Try next: "build out <a class="dv-oid" href="#1b">1b</a> as the real site" · "make <a class="dv-oid" href="#1a">1a</a> darker like <a class="dv-oid" href="#1b">1b</a>" · "add a Spotify embed + real RSVP to <a class="dv-oid" href="#1c">1c</a>" · "new directions"</p>
+</section>
+</x-dc>
+</body>
+</html>
